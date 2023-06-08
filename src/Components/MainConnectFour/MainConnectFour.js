@@ -189,16 +189,22 @@ const MainConnectFour = ({ socket, roomCode, username }) => {
 
   const handleWin = (winner) => {
     setWinner(winner);
+    setTimeout(() => {
+      setBoard(Array(42).fill(""));
+    }, 2000);
   };
 
   const handleDraw = () => {
     setWinner("draw");
+    setTimeout(() => {
+      setBoard(Array(42).fill(""));
+    }, 2000);
   };
 
   const handleRestart = () => {
     setGameStarted(true);
-    setBoard(Array(42).fill(""));
     setWinner(null);
+    setCanPlay(true);
   };
 
   return (
