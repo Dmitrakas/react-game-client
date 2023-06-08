@@ -1,0 +1,43 @@
+main {
+  flex: 1;
+  display: grid;
+  place-content: center;
+}
+
+main > h1,
+main > h2,
+main > h3,
+main > h4,
+main > h5,
+main > h6,
+main > p {
+  text-align: center;
+  color: var(--secondary-color);
+}
+
+.main-section-four {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  background-color: var(--secondary-color);
+  gap: 0.5rem;
+  margin-top: 50px;
+}
+
+.result {
+  margin-top: 20px;
+  font-size: 24px;
+  text-align: center;
+  color: var(--secondary-color);
+}
+
+.result button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}

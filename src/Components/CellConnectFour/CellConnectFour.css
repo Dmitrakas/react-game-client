@@ -1,0 +1,29 @@
+.cell-four {
+  height: 80px;
+  width: 80px;
+  background: var(--primary-color);
+  color: var(--secondary-color);
+  font-size: 5rem;
+  display: grid;
+  place-content: center;
+}
+
+.cell-four:hover {
+  cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  .cell-four {
+    height: 50px;
+    width: 50px;
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .cell-four {
+    height: 36px;
+    width: 36px;
+    font-size: 1.8rem;
+  }
+}
