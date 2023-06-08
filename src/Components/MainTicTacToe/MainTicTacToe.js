@@ -32,7 +32,7 @@ const MainTicTacToe = ({ socket, roomCode, username }) => {
 
   useEffect(() => {
     checkWinningCombinations();
-  }, [board]);
+  });
 
   useEffect(() => {
     if (gameStarted) {
