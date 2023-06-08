@@ -12,7 +12,7 @@ const MainTicTacToe = ({ socket, roomCode, username }) => {
     socket.on("startGame", () => {
       setGameStarted(true);
     });
-  
+
     return () => socket.off("startGame");
   }, [socket]);
 
@@ -23,10 +23,10 @@ const MainTicTacToe = ({ socket, roomCode, username }) => {
         updatedBoard[id] = currentPlayer;
         return updatedBoard;
       });
-      
+
       setCanPlay(true);
     });
-  
+
     return () => socket.off("updateGame");
   }, [socket]);
 
@@ -44,11 +44,11 @@ const MainTicTacToe = ({ socket, roomCode, username }) => {
 
   const handleCellClick = (e) => {
     if (!gameStarted || !canPlay) return;
-  
+
     const id = e.currentTarget.id;
     if (board[id] === "") {
       const currentPlayer = board.filter((cell) => cell !== "").length % 2 === 0 ? "X" : "O";
-  
+
       setBoard((data) => {
         const updatedBoard = [...data];
         updatedBoard[id] = currentPlayer;
@@ -94,26 +94,32 @@ const MainTicTacToe = ({ socket, roomCode, username }) => {
 
     if (winner) {
       handleWin(winner);
+      setCanPlay(false);
     } else if (isBoardFull) {
       handleDraw();
+      setCanPlay(false);
     }
   };
 
   const handleWin = (winner) => {
     setWinner(winner);
+    setTimeout(() => {
+      setBoard(["", "", "", "", "", "", "", "", ""]);
+    }, 2000);
   };
 
   const handleDraw = () => {
     setWinner("draw");
+    setTimeout(() => {
+      setBoard(["", "", "", "", "", "", "", "", ""]);
+    }, 2000);
   };
 
   const handleRestart = () => {
-
-    setGameStarted(true);
-    setBoard(["", "", "", "", "", "", "", "", ""]);
     setWinner(null);
-  };
-  
+    setCanPlay(true);
+  }
+
 
   return (
     <main>
